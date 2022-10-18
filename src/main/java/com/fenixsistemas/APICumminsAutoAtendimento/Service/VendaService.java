@@ -13,7 +13,7 @@ public class VendaService {
 	private VendaRepositorio vendaRepositorio;
 	
 	public boolean inserirVenda(Venda venda) {
-		return vendaRepositorio.inserirVenda();
+		return vendaRepositorio.inserirVenda(venda);
 	}
 	public int buscarIdCaixa() {
 		return vendaRepositorio.buscarIdCaixa();

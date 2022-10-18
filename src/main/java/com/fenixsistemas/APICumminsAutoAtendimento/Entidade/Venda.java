@@ -2,7 +2,7 @@ package com.fenixsistemas.APICumminsAutoAtendimento.Entidade;
 
 public class Venda {
 
-	private Long id;
+	private int id;
 	private String dataAbertura;
 	//private int idCliente;
 	private int situacao;
@@ -14,12 +14,12 @@ public class Venda {
 	private String tipoVenda;
 	private int numeroMesa;
 	private int numeroComanda;
-	private Long idDaVenda;
-	private Long idCaixa;
+	private int idDaVenda;
+	private int idCaixa;
 	private String terminalAbertura;
-	public Venda(Long id, String dataAbertura, int situacao, int usuarioAbertura, String dataAbertura2, double desconto,
-			double acrescimo, double valorTotal, String tipoVenda, int numeroMesa, int numeroComanda, Long idDaVenda,
-			Long idCaixa, String terminalAbertura) {
+	public Venda(int id, String dataAbertura, int situacao, int usuarioAbertura, String dataAbertura2, double desconto,
+			double acrescimo, double valorTotal, String tipoVenda, int numeroMesa, int numeroComanda, int idDaVenda,
+			int idCaixa, String terminalAbertura) {
 		super();
 		this.id = id;
 		this.dataAbertura = dataAbertura;
@@ -39,10 +39,10 @@ public class Venda {
 	public Venda() {
 		super();
 	}
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDataAbertura() {
@@ -105,16 +105,16 @@ public class Venda {
 	public void setNumeroComanda(int numeroComanda) {
 		this.numeroComanda = numeroComanda;
 	}
-	public Long getIdDaVenda() {
+	public int getIdDaVenda() {
 		return idDaVenda;
 	}
-	public void setIdDaVenda(Long idDaVenda) {
+	public void setIdDaVenda(int idDaVenda) {
 		this.idDaVenda = idDaVenda;
 	}
-	public Long getIdCaixa() {
+	public int getIdCaixa() {
 		return idCaixa;
 	}
-	public void setIdCaixa(Long idCaixa) {
+	public void setIdCaixa(int idCaixa) {
 		this.idCaixa = idCaixa;
 	}
 	public String getTerminalAbertura() {

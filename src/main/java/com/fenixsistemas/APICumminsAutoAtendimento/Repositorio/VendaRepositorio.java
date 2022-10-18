@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import org.springframework.stereotype.Repository;
 
 import com.fenixsistemas.APICumminsAutoAtendimento.Conexao.ConexaoBD;
+import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.Venda;
 import com.fenixsistemas.APICumminsAutoAtendimento.Script.Script;
 
 
@@ -19,24 +20,18 @@ public class VendaRepositorio {
 	ConexaoBD conex = new ConexaoBD();
     Script script = new Script();
     
-    public boolean inserirVenda(id,data,usuarioAbertura, dataAbertura2,
-			 desconto, acrecimo, valorTotal, tipoVenda,
-			 numeroMesa, numeroComanda, idVenda, idCaixa) {
+    public boolean inserirVenda(Venda venda) {
     	conex.conexao();
-		String sql = script.inserirVenda(id,data,usuarioAbertura, dataAbertura2,
-				 desconto, acrecimo, valorTotal, tipoVenda,
-				 numeroMesa, numeroComanda, idVenda, idCaixa);
-		conex.executaSql(sql);
-		
+		String sql = script.inserirVenda(venda.getId(),venda.getDataAbertura(),venda.getUsuarioAbertura(), venda.getDataAbertura2(),
+				 venda.getDesconto(), venda.getAcrescimo(), venda.getValorTotal(), venda.getTipoVenda(),
+				 venda.getNumeroMesa(), venda.getNumeroComanda(), venda.getId(), venda.getIdCaixa());		
         try {
-        	while (conex.rs.next()) {
-        		
-			}
+        	conex.executaSql(sql);
         	conex.desconecta();
-        	//return listGarcom;
-        } catch (SQLException ex) {
+        	return true;
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Não foi possivel inserir a venda \n\n" + ex);
-            return null;
+            return false;
         }
     }
     
