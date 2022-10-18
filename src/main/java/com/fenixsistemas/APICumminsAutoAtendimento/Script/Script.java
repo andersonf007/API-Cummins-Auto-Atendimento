@@ -48,4 +48,66 @@ public class Script {
 					2
 				""",idProduto);
 	}
+
+	public String buscarProdutos() {
+		return String.format("""
+				select
+					m.mat_001 as id,
+					m.mat_003 as descricao,
+					m.uni_001 as id_unidade,	
+					u.uni_002 as unidade,
+					m.mat_008 as precoVenda,
+					m.sit_001 as situacao,
+					m.cat_001 as id_categoria,
+					c.cat_002 as categoria,
+					m.valor_tam_p as valorP,
+					m.valor_tam_m as valorM,
+					m.valor_tam_g as valorG,
+					m.valor_tam_gg as valorGG,
+					m.valor_tam_extra as valorE,
+					m.b_venda_tamanho as vendaTamanho,
+					m.tamanho_padrao as tamanho_padrao,
+					m.hh_ativar as happyHourAtivado,
+					m.hh_dia_seg as happyHourSegunda,
+					m.hh_dia_ter as happyHourTerca,
+					m.hh_dia_qua as happyHourQuarta,
+					m.hh_dia_qui as happyHourQuinta,
+					m.hh_dia_sex as happyHourSexta,
+					m.hh_dia_sab as happyHourSabado,
+					m.hh_dia_dom as happyHourDomingo,
+					m.hh_tipo_mesa as happyHourMesa,
+					m.hh_tipo_comanda as happyHourComanda,
+					m.hh_inicial as happyHourInicial,
+					m.hh_final as happyHourFinal,
+					m.hh_valor as happyHourValor,
+					m.b_proximogratis as proximoGratis,
+					m.qtdeproximogratis as quantidadeProximoGratis,
+					m.seg_gratis as segundaGratis,
+					m.ter_gratis as tercaGratis,
+					m.qua_gratis as quartaGratis,
+					m.qui_gratis as quintaGratis,
+					m.sex_gratis as sextaGratis,
+					m.sab_gratis as sabadoGratis,
+					m.dom_gratis as domingoGratis,
+					m.hh_inigratis as horaInicialGratis,
+					m.hh_fimgratis as horaFinalGratis,
+					m.b_restricao as restricao,
+					m.nao_dia_seg as naoSegunda,
+					m.nao_dia_ter as naoTerca,
+					m.nao_dia_qua as naoQuarta,
+					m.nao_dia_qui as naoQuinta,
+					m.nao_dia_sex as naoSexta,
+					m.nao_dia_sab as naoSabado,
+					m.nao_dia_dom as naoDomingo,
+					m.url_image as urlImagem
+				from materiais m 
+				join categoria c
+				on m.cat_001 = c.cat_001
+				join unidades u 
+				on u.uni_001 = m.uni_001
+				where
+					m.sit_001 = 4
+					and auto_atendimento = TRUE
+								""");
+	}
 }
