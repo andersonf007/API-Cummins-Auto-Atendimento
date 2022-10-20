@@ -1,4 +1,4 @@
-package com.fenixsistemas.APICumminsAutoAtendimento.Service;
+package com.fenixsistemas.APICumminsAutoAtendimento.Negocio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.Venda;
 import com.fenixsistemas.APICumminsAutoAtendimento.Repositorio.VendaRepositorio;
 
 @Service
-public class VendaService {
+public class VendaNegocio {
 
 	@Autowired
 	private VendaRepositorio vendaRepositorio;

@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.Venda;
-import com.fenixsistemas.APICumminsAutoAtendimento.Service.VendaService;
+import com.fenixsistemas.APICumminsAutoAtendimento.Fachada.Fachada;
 
 @RestController
 @RequestMapping("/venda")
 public class VendaController {
 	
 	@Autowired
-	private VendaService vendaService;
+	private Fachada fachada;
 	
 	@RequestMapping(value = "inserirVenda", method = RequestMethod.POST)
 	public ResponseEntity<String> inserirVenda(@RequestBody String dados){
 		
-		int idCaixa = vendaService.buscarIdCaixa();
-		int idVenda = vendaService.buscarIdProximaVenda();
+		int idCaixa = fachada.buscarIdCaixa();
+		int idVenda = fachada.buscarIdProximaVenda();
 		try {
 			if(idCaixa == 0 || idVenda == 0) {
 				return new ResponseEntity<>("error",  HttpStatus.BAD_REQUEST);
@@ -38,7 +38,7 @@ public class VendaController {
 			int numeroMesa = obj.getInt("numeroMesa");
 			int numeroComanda = obj.getInt("numeroComanda");
 			Venda venda = new Venda(idVenda,data,8,usuarioAbertura,data,desconto,acrescimo,valorTotal,tipoVenda,numeroMesa,numeroComanda,idVenda,idCaixa,"Auto Atendimento");
-			boolean validacao = vendaService.inserirVenda(venda);
+			boolean validacao = fachada.inserirVenda(venda);
 			if(validacao) {
 				return new ResponseEntity<>("ok", HttpStatus.OK);
 			}else {

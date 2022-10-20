@@ -68,4 +68,38 @@ public class VendaRepositorio {
 			// TODO: handle exception
 		}
     }
+    
+    public int verificarSeAVendaEstaAberta(int idMesaComanda, String tipoVenda) {
+    	conex.conexao();
+    	String sql = script.verificarSeAVendaEstaAberta(idMesaComanda,tipoVenda);
+    	conex.executaSql(sql);
+    	int id = 0;
+    	try {
+    		while(conex.rs.next()) {
+    			id = conex.rs.getInt("ven_001");
+    		}
+    		conex.desconecta();
+			return id;
+		} catch (Exception e) {
+			return id;
+			// TODO: handle exception
+		}
+    }
+    
+    public int verificarSeAVendaEstaAguardandoPagamento(int idMesaComanda, String tipoVenda) {
+    	conex.conexao();
+    	String sql = script.verificarSeAVendaEstaAguardandoPagamento(idMesaComanda,tipoVenda);
+    	conex.executaSql(sql);
+    	int id = 0;
+    	try {
+    		while(conex.rs.next()) {
+    			id = conex.rs.getInt("ven_001");
+    		}
+    		conex.desconecta();
+			return id;
+		} catch (Exception e) {
+			return id;
+			// TODO: handle exception
+		}
+    }
 }
