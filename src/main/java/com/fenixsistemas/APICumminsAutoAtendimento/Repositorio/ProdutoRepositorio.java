@@ -69,7 +69,8 @@ public class ProdutoRepositorio {
     			produto.setNaoSexta(conex.rs.getBoolean("naoSexta"));
     			produto.setNaoSabado(conex.rs.getBoolean("naoSabado"));
     			produto.setNaoDomingo(conex.rs.getBoolean("naoDomingo"));
-    			produto.setUrlImagem(conex.rs.getString("urlImagem"));    			
+    			produto.setUrlImagem(conex.rs.getString("urlImagem"));  
+    			listProduto.add(produto);
     		}
     		conex.desconecta();
 			return listProduto;
@@ -134,7 +135,8 @@ public class ProdutoRepositorio {
     			produto.setNaoSexta(conex.rs.getBoolean("naoSexta"));
     			produto.setNaoSabado(conex.rs.getBoolean("naoSabado"));
     			produto.setNaoDomingo(conex.rs.getBoolean("naoDomingo"));
-    			produto.setUrlImagem(conex.rs.getString("urlImagem"));    			
+    			produto.setUrlImagem(conex.rs.getString("urlImagem"));   
+    			listProduto.add(produto);
     		}
     		conex.desconecta();
 			return listProduto;

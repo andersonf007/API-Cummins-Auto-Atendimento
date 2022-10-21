@@ -1,19 +1,19 @@
 package com.fenixsistemas.APICumminsAutoAtendimento.Entidade;
 
-public class Opicional {
+public class Opcional {
 
 	private int id;
 	private String descricao;
 	private double valor;
 	private int situacao;
-	public Opicional(int id, String descricao, double valor, int situacao) {
+	public Opcional(int id, String descricao, double valor, int situacao) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.valor = valor;
 		this.situacao = situacao;
 	}
-	public Opicional() {
+	public Opcional() {
 		super();
 	}
 	public int getId() {

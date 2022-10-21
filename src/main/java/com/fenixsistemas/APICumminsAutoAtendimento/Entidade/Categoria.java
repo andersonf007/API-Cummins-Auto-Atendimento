@@ -4,9 +4,9 @@ public class Categoria {
 	
 	private int id;
 	private String descricao;
-	private double fracionar;
+	private boolean fracionar;
 	private int quantidadeFracionamento;
-	public Categoria(int id, String descricao, double fracionar, int quantidadeFracionamento) {
+	public Categoria(int id, String descricao, boolean fracionar, int quantidadeFracionamento) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -28,10 +28,10 @@ public class Categoria {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public double getFracionar() {
+	public boolean getFracionar() {
 		return fracionar;
 	}
-	public void setFracionar(double fracionar) {
+	public void setFracionar(boolean fracionar) {
 		this.fracionar = fracionar;
 	}
 	public int getQuantidadeFracionamento() {

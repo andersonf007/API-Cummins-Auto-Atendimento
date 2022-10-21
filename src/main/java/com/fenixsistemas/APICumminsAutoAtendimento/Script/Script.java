@@ -198,4 +198,20 @@ public class Script {
 					and ven_025 = %d 
 				""","\'"+tipoVenda+"\'",idMesaComanda);
 	}
+
+	public String buscarCategorias() {
+		return String.format("""
+				select 
+					distinct
+					m.cat_001,
+					c.cat_002,
+					c.b_fracionar,
+					c.fracionamento
+				from materiais m
+				inner join categoria c
+				on c.cat_001 = m.cat_001
+				order by
+					c.cat_002
+				""");
+	}
 }
