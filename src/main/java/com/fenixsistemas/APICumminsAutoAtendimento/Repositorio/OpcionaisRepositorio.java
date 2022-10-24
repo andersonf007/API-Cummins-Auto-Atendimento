@@ -15,7 +15,7 @@ public class OpcionaisRepositorio {
 	ConexaoBD conex = new ConexaoBD();
 	Script script = new Script();
 	
-	public List<Opcional> buscarOpcionaisDeUmProduto(int idProduto){
+	public ArrayList<Opcional> buscarOpcionaisDeUmProduto(int idProduto){
 		conex.conexao();
 		String sql = script.buscarCategorias();
 		ArrayList<Opcional> listaOpcional = new ArrayList<>();

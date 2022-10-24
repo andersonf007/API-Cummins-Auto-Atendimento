@@ -21,4 +21,14 @@ public class VendaNegocio {
 	public int buscarIdProximaVenda() {
 		return vendaRepositorio.buscarIdProximaVenda();
 	}
+	public int verificarSeAVendaEstaAberta(int idMesaComanda, String tipoVenda) {
+		return vendaRepositorio.verificarSeAVendaEstaAberta(idMesaComanda, tipoVenda);
+	}
+	
+	public int verificarSeAVendaEstaAguardandoPagamento(int idMesaComanda, String tipoVenda) {
+		return vendaRepositorio.verificarSeAVendaEstaAguardandoPagamento(idMesaComanda, tipoVenda);
+	}
+	
 }
+
+

@@ -4,9 +4,11 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.Venda;
@@ -46,6 +48,26 @@ public class VendaController {
 			}
 		} catch (Exception e) {
 			return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@GetMapping("/verificarSeAVendaEstaAberta")
+	public ResponseEntity<Integer> verificarSeAVendaEstaAberta(@RequestParam int numeroMesaComanda, @RequestParam String tipoVenda) {
+		int id = fachada.verificarSeAVendaEstaAberta(numeroMesaComanda, tipoVenda);
+		if(id == 0) {
+			return new ResponseEntity<>(0, HttpStatus.BAD_REQUEST);
+		}else {
+			return new ResponseEntity<>(id, HttpStatus.OK);
+		}
+	}
+
+	@GetMapping("/verificarSeAVendaEstaAguardandoPagamento")
+	public ResponseEntity<Integer> verificarSeAVendaEstaAguardandoPagamento(int numeroMesaComanda, String tipoVenda) {
+		int id = fachada.verificarSeAVendaEstaAguardandoPagamento(numeroMesaComanda, tipoVenda);
+		if(id == 0) {
+			return new ResponseEntity<>(0, HttpStatus.BAD_REQUEST);
+		}else {
+			return new ResponseEntity<>(id, HttpStatus.OK);
 		}
 	}
 }

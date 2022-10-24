@@ -210,6 +210,8 @@ public class Script {
 				from materiais m
 				inner join categoria c
 				on c.cat_001 = m.cat_001
+				where
+					m.auto_atendimento = true
 				order by
 					c.cat_002
 				""");

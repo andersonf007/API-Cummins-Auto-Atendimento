@@ -14,7 +14,7 @@ public class ProdutoRepositorio {
 	ConexaoBD conex = new ConexaoBD();
 	Script script = new Script();
 	
-	public List<Produto> buscarProdutos(){
+	public ArrayList<Produto> buscarProdutos(){
     	conex.conexao();
     	String sql = script.buscarProdutos();
     	conex.executaSql(sql);
@@ -80,7 +80,7 @@ public class ProdutoRepositorio {
 		}
 	}
 	
-	public List<Produto> buscarProdutosPorCategoria(int idCategoria){
+	public ArrayList<Produto> buscarProdutosPorCategoria(int idCategoria){
     	conex.conexao();
     	String sql = script.buscarProdutosPorCategoria(idCategoria);
     	conex.executaSql(sql);

@@ -16,7 +16,7 @@ public class CategoriaRepositorio {
 	ConexaoBD conex = new ConexaoBD();
 	Script script = new Script();
 	
-	public List<Categoria> buscarCategorias(){
+	public ArrayList<Categoria> buscarCategorias(){
 		conex.conexao();
 		String sql = script.buscarCategorias();
 		ArrayList<Categoria> listaCategoria = new ArrayList<>();
