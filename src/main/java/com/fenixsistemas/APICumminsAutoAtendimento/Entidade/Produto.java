@@ -15,7 +15,7 @@ public class Produto {
 	private double valorG;
 	private double valorGG;
 	private double valorE;
-	private double vendaTamanho;
+	private boolean vendaTamanho;
 	private String tamanhoPadrao;
 	private boolean happyHourAtivado;
 	private boolean happyHourSegunda;
@@ -30,7 +30,7 @@ public class Produto {
 	private String happyHourInicial;
 	private String happyHourFinal;
 	private double happyHourValor;
-	private double proximoGratis;
+	private boolean proximoGratis;
 	private int quantidadeProximoGratis;
 	private boolean segundaGratis;
 	private boolean tercaGratis;
@@ -52,11 +52,11 @@ public class Produto {
 	private String urlImagem;
 	public Produto(int id, String descricao, int id_unidade, String unidade, double precoVenda, int situacao,
 			int id_categoria, String categoria, double valorP, double valorM, double valorG, double valorGG,
-			double valorE, double vendaTamanho, String tamanhoPadrao, boolean happyHourAtivado,
+			double valorE, boolean vendaTamanho, String tamanhoPadrao, boolean happyHourAtivado,
 			boolean happyHourSegunda, boolean happyHourTerca, boolean happyHourQuarta, boolean happyHourQuinta,
 			boolean happyHourSexta, boolean happyHourSabado, boolean happyHourDomingo, boolean happyHourMesa,
 			boolean happyHourComanda, String happyHourInicial, String happyHourFinal, double happyHourValor,
-			double proximoGratis, int quantidadeProximoGratis, boolean segundaGratis, boolean tercaGratis,
+			boolean proximoGratis, int quantidadeProximoGratis, boolean segundaGratis, boolean tercaGratis,
 			boolean quartaGratis, boolean quintaGratis, boolean sextaGratis, boolean sabadoGratis,
 			boolean domingoGratis, String horaInicialGratis, String horaFinalGratis, boolean restricao,
 			boolean naoSegunda, boolean naoTerca, boolean naoQuarta, boolean naoQuinta, boolean naoSexta,
@@ -192,10 +192,10 @@ public class Produto {
 	public void setValorE(double valorE) {
 		this.valorE = valorE;
 	}
-	public double getVendaTamanho() {
+	public boolean getVendaTamanho() {
 		return vendaTamanho;
 	}
-	public void setVendaTamanho(double vendaTamanho) {
+	public void setVendaTamanho(boolean vendaTamanho) {
 		this.vendaTamanho = vendaTamanho;
 	}
 	public String getTamanhoPadrao() {
@@ -204,61 +204,61 @@ public class Produto {
 	public void setTamanhoPadrao(String tamanhoPadrao) {
 		this.tamanhoPadrao = tamanhoPadrao;
 	}
-	public boolean isHappyHourAtivado() {
+	public boolean getHappyHourAtivado() {
 		return happyHourAtivado;
 	}
 	public void setHappyHourAtivado(boolean happyHourAtivado) {
 		this.happyHourAtivado = happyHourAtivado;
 	}
-	public boolean isHappyHourSegunda() {
+	public boolean getHappyHourSegunda() {
 		return happyHourSegunda;
 	}
 	public void setHappyHourSegunda(boolean happyHourSegunda) {
 		this.happyHourSegunda = happyHourSegunda;
 	}
-	public boolean isHappyHourTerca() {
+	public boolean getHappyHourTerca() {
 		return happyHourTerca;
 	}
 	public void setHappyHourTerca(boolean happyHourTerca) {
 		this.happyHourTerca = happyHourTerca;
 	}
-	public boolean isHappyHourQuarta() {
+	public boolean getHappyHourQuarta() {
 		return happyHourQuarta;
 	}
 	public void setHappyHourQuarta(boolean happyHourQuarta) {
 		this.happyHourQuarta = happyHourQuarta;
 	}
-	public boolean isHappyHourQuinta() {
+	public boolean getHappyHourQuinta() {
 		return happyHourQuinta;
 	}
 	public void setHappyHourQuinta(boolean happyHourQuinta) {
 		this.happyHourQuinta = happyHourQuinta;
 	}
-	public boolean isHappyHourSexta() {
+	public boolean getHappyHourSexta() {
 		return happyHourSexta;
 	}
 	public void setHappyHourSexta(boolean happyHourSexta) {
 		this.happyHourSexta = happyHourSexta;
 	}
-	public boolean isHappyHourSabado() {
+	public boolean getHappyHourSabado() {
 		return happyHourSabado;
 	}
 	public void setHappyHourSabado(boolean happyHourSabado) {
 		this.happyHourSabado = happyHourSabado;
 	}
-	public boolean isHappyHourDomingo() {
+	public boolean getHappyHourDomingo() {
 		return happyHourDomingo;
 	}
 	public void setHappyHourDomingo(boolean happyHourDomingo) {
 		this.happyHourDomingo = happyHourDomingo;
 	}
-	public boolean isHappyHourMesa() {
+	public boolean getHappyHourMesa() {
 		return happyHourMesa;
 	}
 	public void setHappyHourMesa(boolean happyHourMesa) {
 		this.happyHourMesa = happyHourMesa;
 	}
-	public boolean isHappyHourComanda() {
+	public boolean getHappyHourComanda() {
 		return happyHourComanda;
 	}
 	public void setHappyHourComanda(boolean happyHourComanda) {
@@ -282,10 +282,10 @@ public class Produto {
 	public void setHappyHourValor(double happyHourValor) {
 		this.happyHourValor = happyHourValor;
 	}
-	public double getProximoGratis() {
+	public boolean getProximoGratis() {
 		return proximoGratis;
 	}
-	public void setProximoGratis(double proximoGratis) {
+	public void setProximoGratis(boolean proximoGratis) {
 		this.proximoGratis = proximoGratis;
 	}
 	public int getQuantidadeProximoGratis() {
@@ -294,43 +294,43 @@ public class Produto {
 	public void setQuantidadeProximoGratis(int quantidadeProximoGratis) {
 		this.quantidadeProximoGratis = quantidadeProximoGratis;
 	}
-	public boolean isSegundaGratis() {
+	public boolean getSegundaGratis() {
 		return segundaGratis;
 	}
 	public void setSegundaGratis(boolean segundaGratis) {
 		this.segundaGratis = segundaGratis;
 	}
-	public boolean isTercaGratis() {
+	public boolean getTercaGratis() {
 		return tercaGratis;
 	}
 	public void setTercaGratis(boolean tercaGratis) {
 		this.tercaGratis = tercaGratis;
 	}
-	public boolean isQuartaGratis() {
+	public boolean getQuartaGratis() {
 		return quartaGratis;
 	}
 	public void setQuartaGratis(boolean quartaGratis) {
 		this.quartaGratis = quartaGratis;
 	}
-	public boolean isQuintaGratis() {
+	public boolean getQuintaGratis() {
 		return quintaGratis;
 	}
 	public void setQuintaGratis(boolean quintaGratis) {
 		this.quintaGratis = quintaGratis;
 	}
-	public boolean isSextaGratis() {
+	public boolean getSextaGratis() {
 		return sextaGratis;
 	}
 	public void setSextaGratis(boolean sextaGratis) {
 		this.sextaGratis = sextaGratis;
 	}
-	public boolean isSabadoGratis() {
+	public boolean getSabadoGratis() {
 		return sabadoGratis;
 	}
 	public void setSabadoGratis(boolean sabadoGratis) {
 		this.sabadoGratis = sabadoGratis;
 	}
-	public boolean isDomingoGratis() {
+	public boolean getDomingoGratis() {
 		return domingoGratis;
 	}
 	public void setDomingoGratis(boolean domingoGratis) {
@@ -348,49 +348,49 @@ public class Produto {
 	public void setHoraFinalGratis(String horaFinalGratis) {
 		this.horaFinalGratis = horaFinalGratis;
 	}
-	public boolean isRestricao() {
+	public boolean getRestricao() {
 		return restricao;
 	}
 	public void setRestricao(boolean restricao) {
 		this.restricao = restricao;
 	}
-	public boolean isNaoSegunda() {
+	public boolean getNaoSegunda() {
 		return naoSegunda;
 	}
 	public void setNaoSegunda(boolean naoSegunda) {
 		this.naoSegunda = naoSegunda;
 	}
-	public boolean isNaoTerca() {
+	public boolean getNaoTerca() {
 		return naoTerca;
 	}
 	public void setNaoTerca(boolean naoTerca) {
 		this.naoTerca = naoTerca;
 	}
-	public boolean isNaoQuarta() {
+	public boolean getNaoQuarta() {
 		return naoQuarta;
 	}
 	public void setNaoQuarta(boolean naoQuarta) {
 		this.naoQuarta = naoQuarta;
 	}
-	public boolean isNaoQuinta() {
+	public boolean getNaoQuinta() {
 		return naoQuinta;
 	}
 	public void setNaoQuinta(boolean naoQuinta) {
 		this.naoQuinta = naoQuinta;
 	}
-	public boolean isNaoSexta() {
+	public boolean getNaoSexta() {
 		return naoSexta;
 	}
 	public void setNaoSexta(boolean naoSexta) {
 		this.naoSexta = naoSexta;
 	}
-	public boolean isNaoSabado() {
+	public boolean getNaoSabado() {
 		return naoSabado;
 	}
 	public void setNaoSabado(boolean naoSabado) {
 		this.naoSabado = naoSabado;
 	}
-	public boolean isNaoDomingo() {
+	public boolean getNaoDomingo() {
 		return naoDomingo;
 	}
 	public void setNaoDomingo(boolean naoDomingo) {

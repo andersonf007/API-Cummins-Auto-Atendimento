@@ -17,14 +17,14 @@ public class OpcionaisRepositorio {
 	
 	public ArrayList<Opcional> buscarOpcionaisDeUmProduto(int idProduto){
 		conex.conexao();
-		String sql = script.buscarCategorias();
+		String sql = script.buscarOpcionaisDeUmProduto(idProduto);
 		ArrayList<Opcional> listaOpcional = new ArrayList<>();
 		try {
         	conex.executaSql(sql);
         	while(conex.rs.next()) {
         		Opcional opcional = new Opcional();
         		opcional.setId(conex.rs.getInt("id"));
-        		opcional.setDescricao(conex.rs.getString("cat_002"));
+        		opcional.setDescricao(conex.rs.getString("descricao"));
         		opcional.setValor(conex.rs.getDouble("valor"));
         		opcional.setSituacao(conex.rs.getInt("situacao"));
         		listaOpcional.add(opcional);

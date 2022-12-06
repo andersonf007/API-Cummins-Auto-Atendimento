@@ -20,12 +20,12 @@ public class VendaItem {
 	private int itemFracionado;
 	private double acrescimo;
 	private double quantidadeImpressao;
-	private Date horaLancamento; 
+	private String horaLancamento; 
 	private boolean gratis;
 	public VendaItem(Long idVenda, int posicaoItem, Long idProduto, double quantidade, double valorUnitario,
 			double valorTotal, String observacao, int situacao, int idImpressora, int idGarcom, double desconto,
 			String tamanho, boolean vendaTamanho, int itemFracionado, double acrescimo, double quantidadeImpressao,
-			Date horaLancamento, boolean gratis) {
+			String horaLancamento, boolean gratis) {
 		super();
 		this.idVenda = idVenda;
 		this.posicaoItem = posicaoItem;
@@ -121,7 +121,7 @@ public class VendaItem {
 	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
-	public boolean isVendaTamanho() {
+	public boolean getVendaTamanho() {
 		return vendaTamanho;
 	}
 	public void setVendaTamanho(boolean vendaTamanho) {
@@ -145,13 +145,13 @@ public class VendaItem {
 	public void setQuantidadeImpressao(double quantidadeImpressao) {
 		this.quantidadeImpressao = quantidadeImpressao;
 	}
-	public Date getHoraLancamento() {
+	public String getHoraLancamento() {
 		return horaLancamento;
 	}
-	public void setHoraLancamento(Date horaLancamento) {
+	public void setHoraLancamento(String horaLancamento) {
 		this.horaLancamento = horaLancamento;
 	}
-	public boolean isGratis() {
+	public boolean getGratis() {
 		return gratis;
 	}
 	public void setGratis(boolean gratis) {

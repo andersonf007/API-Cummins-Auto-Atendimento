@@ -35,7 +35,7 @@ public class ProdutoRepositorio {
     			produto.setValorG(conex.rs.getDouble("valorG"));
     			produto.setValorGG(conex.rs.getDouble("valorGG"));
     			produto.setValorE(conex.rs.getDouble("valorE"));
-    			produto.setVendaTamanho(conex.rs.getDouble("vendaTamanho"));
+    			produto.setVendaTamanho(conex.rs.getBoolean("vendaTamanho"));
     			produto.setTamanhoPadrao(conex.rs.getString("tamanhoPadrao"));
     			produto.setHappyHourAtivado(conex.rs.getBoolean("happyHourAtivado"));
     			produto.setHappyHourSegunda(conex.rs.getBoolean("happyHourSegunda"));
@@ -50,7 +50,7 @@ public class ProdutoRepositorio {
     			produto.setHappyHourInicial(conex.rs.getString("happyHourInicial"));
     			produto.setHappyHourFinal(conex.rs.getString("happyHourFinal"));
     			produto.setHappyHourValor(conex.rs.getDouble("happyHourValor"));
-    			produto.setProximoGratis(conex.rs.getDouble("proximoGratis"));
+    			produto.setProximoGratis(conex.rs.getBoolean("proximoGratis"));
     			produto.setQuantidadeProximoGratis(conex.rs.getInt("quantidadeProximoGratis"));
     			produto.setSegundaGratis(conex.rs.getBoolean("segundaGratis"));
     			produto.setTercaGratis(conex.rs.getBoolean("tercaGratis"));
@@ -101,7 +101,7 @@ public class ProdutoRepositorio {
     			produto.setValorG(conex.rs.getDouble("valorG"));
     			produto.setValorGG(conex.rs.getDouble("valorGG"));
     			produto.setValorE(conex.rs.getDouble("valorE"));
-    			produto.setVendaTamanho(conex.rs.getDouble("vendaTamanho"));
+    			produto.setVendaTamanho(conex.rs.getBoolean("vendaTamanho"));
     			produto.setTamanhoPadrao(conex.rs.getString("tamanhoPadrao"));
     			produto.setHappyHourAtivado(conex.rs.getBoolean("happyHourAtivado"));
     			produto.setHappyHourSegunda(conex.rs.getBoolean("happyHourSegunda"));
@@ -116,7 +116,7 @@ public class ProdutoRepositorio {
     			produto.setHappyHourInicial(conex.rs.getString("happyHourInicial"));
     			produto.setHappyHourFinal(conex.rs.getString("happyHourFinal"));
     			produto.setHappyHourValor(conex.rs.getDouble("happyHourValor"));
-    			produto.setProximoGratis(conex.rs.getDouble("proximoGratis"));
+    			produto.setProximoGratis(conex.rs.getBoolean("proximoGratis"));
     			produto.setQuantidadeProximoGratis(conex.rs.getInt("quantidadeProximoGratis"));
     			produto.setSegundaGratis(conex.rs.getBoolean("segundaGratis"));
     			produto.setTercaGratis(conex.rs.getBoolean("tercaGratis"));

@@ -1,5 +1,7 @@
 package com.fenixsistemas.APICumminsAutoAtendimento.Script;
 
+import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.VendaItemOpcional;
+
 public class Script {
 	
 	public String inserirVenda(int id,String data,int usuarioAbertura,String dataAbertura2,
@@ -14,8 +16,8 @@ public class Script {
 
 	}
 
-	public String inserirVendaItem(int id,int posicaoItem,int idProduto,double quantidade,double valorUnitario,
-			double valorTotal,String observacao,int situacao,int idImpressora,int idGarcom,double tamanho,
+	public String inserirVendaItem(Long id,int posicaoItem,Long idProduto,double quantidade,double valorUnitario,
+			double valorTotal,String observacao,int situacao,int idImpressora,int idGarcom,String tamanho,
 			boolean vendaTamanho,double quantidadeImpressao,String dataLancamento,boolean gratis) {
 		return "INSERT INTO vendaitem(emp_001,ven_001,ite_001,mat_001,ite_002,ite_003,ite_005,ite_006,ite_008,sit_001," 
 				+ "ite_011,ite_012,ite_013,gar_001,desconto,tamanho,b_venda_tamanho,/*item_fracionado,acrescimo,*/" 
@@ -66,7 +68,7 @@ public class Script {
 					m.valor_tam_gg as valorGG,
 					m.valor_tam_extra as valorE,
 					m.b_venda_tamanho as vendaTamanho,
-					m.tamanho_padrao as tamanho_padrao,
+					m.tamanho_padrao as tamanhoPadrao,
 					m.hh_ativar as happyHourAtivado,
 					m.hh_dia_seg as happyHourSegunda,
 					m.hh_dia_ter as happyHourTerca,
@@ -128,7 +130,7 @@ public class Script {
 					m.valor_tam_gg as valorGG,
 					m.valor_tam_extra as valorE,
 					m.b_venda_tamanho as vendaTamanho,
-					m.tamanho_padrao as tamanho_padrao,
+					m.tamanho_padrao as tamanhoPadrao,
 					m.hh_ativar as happyHourAtivado,
 					m.hh_dia_seg as happyHourSegunda,
 					m.hh_dia_ter as happyHourTerca,
@@ -161,7 +163,7 @@ public class Script {
 					m.nao_dia_sex as naoSexta,
 					m.nao_dia_sab as naoSabado,
 					m.nao_dia_dom as naoDomingo,
-					m.url_image as urlImagem
+					m.arquivo_img as urlImagem
 				from materiais m 
 				join categoria c
 				on m.cat_001 = c.cat_001
@@ -215,5 +217,11 @@ public class Script {
 				order by
 					c.cat_002
 				""");
+	}
+
+	public String inserirVendaItemOpcional(VendaItemOpcional vendaItemOpcional) {
+		return "INSERT INTO vendaitemopcional(id_venda, id_empresa, id_vendaitem, id_opcional, gratis, naofracionar)"
+				+ "VALUES ("+vendaItemOpcional.getIdVenda()+", 1, "+vendaItemOpcional.getPossicaoProdutoVendaItem()+","
+				+ " "+vendaItemOpcional.getIdOpcional()+", "+vendaItemOpcional.getGratis()+", "+vendaItemOpcional.getNaoFracionar()+");";
 	}
 }
