@@ -51,6 +51,15 @@ public class Venda {
 		this.terminalAbertura = terminalAbertura;
 	}
 
+	public Venda(int id, double desconto, double acrescimo, double valorTotal, int idDaVenda) {
+		super();
+		this.id = id;
+		this.desconto = desconto;
+		this.acrescimo = acrescimo;
+		this.valorTotal = valorTotal;
+		this.idDaVenda = idDaVenda;
+	}
+
 	public Venda() {
 		super();
 	}

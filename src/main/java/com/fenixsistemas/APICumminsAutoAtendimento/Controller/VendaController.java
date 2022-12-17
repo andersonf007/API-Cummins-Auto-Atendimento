@@ -27,24 +27,14 @@ public class VendaController {
 	private Fachada fachada;
 	
 	@RequestMapping(value = "atualizaVenda", method = RequestMethod.POST)
-	public ResponseEntity<String> atualizaVenda(@RequestBody String dados){
-		
-		int idCaixa = fachada.buscarIdCaixa();
-		int idVenda = fachada.buscarIdProximaVenda();
-		try {
-			if(idCaixa == 0 || idVenda == 0) {
-				return new ResponseEntity<>("error",  HttpStatus.BAD_REQUEST);
-			}
+	public ResponseEntity<String> atualizaVenda(@RequestBody String dados){		
+		try {			
 			JSONObject obj = new JSONObject(dados);
-			String data = obj.getString("data");
-			int usuarioAbertura = obj.getInt("usuarioAbertura");
+			int idVenda = obj.getInt("idVenda");
 			double desconto = obj.getDouble("desconto");
 			double acrescimo = obj.getDouble("acrescimo");
 			double valorTotal = obj.getDouble("valorTotal");
-			String tipoVenda = obj.getString("tipoVenda");
-			int numeroMesa = obj.getInt("numeroMesa");
-			int numeroComanda = obj.getInt("numeroComanda");
-			Venda venda = new Venda(idVenda,data,8,usuarioAbertura,data,desconto,acrescimo,valorTotal,tipoVenda,numeroMesa,numeroComanda,idVenda,idCaixa,"Auto Atendimento");
+			Venda venda = new Venda(idVenda,desconto,acrescimo,valorTotal,idVenda);
 			boolean validacao = fachada.atualizaVenda(venda);
 			if(validacao) {
 				return new ResponseEntity<>("ok", HttpStatus.OK);
