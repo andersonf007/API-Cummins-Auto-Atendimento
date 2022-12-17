@@ -1,12 +1,16 @@
 package com.fenixsistemas.APICumminsAutoAtendimento.Fachada;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.Categoria;
@@ -40,8 +44,36 @@ public class Fachada {
 	Calendar calendar = Calendar.getInstance();
 	
 	/////////////////VENDA///////////////////////////////////
-	public boolean inserirVenda(Venda venda) {
-		return vendaNegocio.inserirVenda(venda);
+	public boolean atualizaVenda(Venda venda) {
+		return vendaNegocio.atualizaVenda(venda);
+	}	
+	public int abrirVenda(int numeroMesaComanda, String tipoVenda) {
+		int idCaixa = buscarIdCaixa();
+		int idVenda = buscarIdProximaVenda();
+		int numeroMesa = 0;
+		int numeroComanda = 0;
+		try {
+			if(idCaixa == 0 || idVenda == 0) {
+				return 0;
+			}
+			Date dataAtual = new Date();
+	        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	        String dataFormatada = dateFormat.format(dataAtual);
+	        if(tipoVenda.equals("M")) {
+	        	numeroMesa = numeroMesaComanda;
+	        }else {
+	        	numeroComanda = numeroMesaComanda;
+	        }
+			Venda venda = new Venda(idVenda,dataFormatada,dataFormatada,tipoVenda,numeroMesa,numeroComanda,idVenda,idCaixa,"Auto Atendimento");
+			int id = vendaNegocio.abrirVenda(venda);
+			if(id != 0) {
+				return id;
+			}else {
+				return 0;
+			}
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 	public int buscarIdCaixa() {
 		return vendaNegocio.buscarIdCaixa();

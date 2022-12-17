@@ -20,11 +20,27 @@ public class VendaRepositorio {
 	ConexaoBD conex = new ConexaoBD();
     Script script = new Script();
     
-    public boolean inserirVenda(Venda venda) {
+    public int abrirVenda(Venda venda) {
     	conex.conexao();
-		String sql = script.inserirVenda(venda.getId(),venda.getDataAbertura(),venda.getUsuarioAbertura(), venda.getDataAbertura2(),
-				 venda.getDesconto(), venda.getAcrescimo(), venda.getValorTotal(), venda.getTipoVenda(),
-				 venda.getNumeroMesa(), venda.getNumeroComanda(), venda.getId(), venda.getIdCaixa());		
+		String sql = script.abrirVenda(venda.getId(),venda.getDataAbertura(),venda.getDataAbertura2(),
+				 venda.getTipoVenda(),venda.getNumeroMesa(), venda.getNumeroComanda(), venda.getId(), venda.getIdCaixa());	
+		int id = 0;
+        try {
+        	conex.executaSql(sql);
+        	while(conex.rs.next()) {
+    			id = conex.rs.getInt("ven_001");
+    		}
+        	conex.desconecta();
+        	return id;
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Não foi possivel inserir a venda \n\n" + ex);
+            return 0;
+        }
+    }
+    
+    public boolean atualizaVenda(Venda venda) {
+    	conex.conexao();
+		String sql = script.atualizaVenda(venda.getDesconto(), venda.getAcrescimo(), venda.getValorTotal(), venda.getId());		
         try {
         	conex.executaSql(sql);
         	conex.desconecta();

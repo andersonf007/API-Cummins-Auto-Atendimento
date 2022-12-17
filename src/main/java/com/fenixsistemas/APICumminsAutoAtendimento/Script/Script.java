@@ -4,16 +4,19 @@ import com.fenixsistemas.APICumminsAutoAtendimento.Entidade.VendaItemOpcional;
 
 public class Script {
 	
-	public String inserirVenda(int id,String data,int usuarioAbertura,String dataAbertura2,
-			double desconto,double acrescimo,double valorTotal,String tipoVenda,
-			int numeroMesa,int numeroComanda,int idVenda,int idCaixa) {
+	public String atualizaVenda(double desconto,double acrescimo,double valorTotal,int idVenda) {
+		return "UPDATE venda SET ven_007="+desconto+",ven_008="+acrescimo+", ven_009="+valorTotal+"	WHERE ven_001 = "+idVenda+" RETURNING ven_001;";
+
+	}
+	
+	public String abrirVenda(int id,String data,String dataAbertura2,
+			String tipoVenda,int numeroMesa,int numeroComanda,int idVenda,int idCaixa) {
 		return "INSERT INTO venda(ven_001,emp_001,ven_002,ven_004,sit_001,usu_001_1,dat_001_1,ven_007,"
 				+ "ven_008, ven_009,ven_024,ven_025,ven_023,ven_026,ven_029,nro_pessoas,nro_couvert_m,nro_couvert_f,"
 				+ "id_caixa_abertura,b_taxa_entrega,terminal_abertura)VALUES ("
-				+ ""+id+",1,0,"+"\'"+data+"\'"+",8,"+usuarioAbertura+","+"\'"+dataAbertura2+"\'"+","
-				+ ""+desconto+","+acrescimo+","+valorTotal+","+"\'"+tipoVenda+"\'"+","+numeroMesa+",'N',"+numeroComanda+","
+				+ ""+id+",1,0,"+"\'"+data+"\'"+",8,1,"+"\'"+dataAbertura2+"\'"+","
+				+ ""+0.00+","+0.00+","+0.00+","+"\'"+tipoVenda+"\'"+","+numeroMesa+",'N',"+numeroComanda+","
 				+ ""+idVenda+",1,0,0,"+idCaixa+",TRUE,'AUTO ATENDIMENTO')RETURNING ven_001;";
-
 	}
 
 	public String inserirVendaItem(Long id,int posicaoItem,Long idProduto,double quantidade,double valorUnitario,

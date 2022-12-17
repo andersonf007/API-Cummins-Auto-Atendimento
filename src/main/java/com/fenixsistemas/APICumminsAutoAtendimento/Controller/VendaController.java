@@ -26,8 +26,8 @@ public class VendaController {
 	@Autowired
 	private Fachada fachada;
 	
-	@RequestMapping(value = "inserirVenda", method = RequestMethod.POST)
-	public ResponseEntity<String> inserirVenda(@RequestBody String dados){
+	@RequestMapping(value = "atualizaVenda", method = RequestMethod.POST)
+	public ResponseEntity<String> atualizaVenda(@RequestBody String dados){
 		
 		int idCaixa = fachada.buscarIdCaixa();
 		int idVenda = fachada.buscarIdProximaVenda();
@@ -45,7 +45,7 @@ public class VendaController {
 			int numeroMesa = obj.getInt("numeroMesa");
 			int numeroComanda = obj.getInt("numeroComanda");
 			Venda venda = new Venda(idVenda,data,8,usuarioAbertura,data,desconto,acrescimo,valorTotal,tipoVenda,numeroMesa,numeroComanda,idVenda,idCaixa,"Auto Atendimento");
-			boolean validacao = fachada.inserirVenda(venda);
+			boolean validacao = fachada.atualizaVenda(venda);
 			if(validacao) {
 				return new ResponseEntity<>("ok", HttpStatus.OK);
 			}else {
@@ -58,11 +58,17 @@ public class VendaController {
 	
 	@GetMapping("/verificarSeAVendaEstaAberta")
 	public ResponseEntity<Object> verificarSeAVendaEstaAberta(@RequestParam String numeroMesaComanda, @RequestParam String tipoVenda) {
+		Map<String, Object> resp = new HashMap<String, Object>();
 		int id = fachada.verificarSeAVendaEstaAberta(Integer.parseInt(numeroMesaComanda), tipoVenda);
-		Map<String, Object> resp = new HashMap<String, Object>();		 
 		if(id == 0) {
-			resp.put("error", id);
-			return new ResponseEntity<Object>(resp, HttpStatus.NO_CONTENT);
+			int idVenda = fachada.abrirVenda(Integer.parseInt(numeroMesaComanda), tipoVenda);
+			if(idVenda == 0) {
+				resp.put("error", id);
+				return new ResponseEntity<Object>(resp, HttpStatus.NO_CONTENT);				
+			}else {
+				resp.put("id", id);
+				return new ResponseEntity<Object>(resp, HttpStatus.OK);
+			}
 		}else {
 			resp.put("id", id);
 			return new ResponseEntity<Object>(resp, HttpStatus.OK);

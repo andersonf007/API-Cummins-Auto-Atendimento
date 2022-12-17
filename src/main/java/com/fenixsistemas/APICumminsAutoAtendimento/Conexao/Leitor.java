@@ -15,7 +15,7 @@ public class Leitor {
 	
 	public Banco buscarArquivoDeInicializacao() {
 		try {
-            FileInputStream arquivo = new FileInputStream("/CumminsAutoAtendimento.txt");
+            FileInputStream arquivo = new FileInputStream("/cumminsAutoAtendimento.txt");
             InputStreamReader input = new InputStreamReader(arquivo);
             BufferedReader buffer = new BufferedReader(input);
             String linha;

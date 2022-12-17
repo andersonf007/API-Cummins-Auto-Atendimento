@@ -12,8 +12,11 @@ public class VendaNegocio {
 	@Autowired
 	private VendaRepositorio vendaRepositorio;
 	
-	public boolean inserirVenda(Venda venda) {
-		return vendaRepositorio.inserirVenda(venda);
+	public boolean atualizaVenda(Venda venda) {
+		return vendaRepositorio.atualizaVenda(venda);
+	}
+	public int abrirVenda(Venda venda) {
+		return vendaRepositorio.abrirVenda(venda);
 	}
 	public int buscarIdCaixa() {
 		return vendaRepositorio.buscarIdCaixa();

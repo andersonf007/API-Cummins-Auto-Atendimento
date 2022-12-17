@@ -36,6 +36,21 @@ public class Venda {
 		this.idCaixa = idCaixa;
 		this.terminalAbertura = terminalAbertura;
 	}
+	
+	public Venda(int id, String dataAbertura, String dataAbertura2, String tipoVenda, int numeroMesa, int numeroComanda,
+			int idDaVenda, int idCaixa, String terminalAbertura) {
+		super();
+		this.id = id;
+		this.dataAbertura = dataAbertura;
+		this.dataAbertura2 = dataAbertura2;
+		this.tipoVenda = tipoVenda;
+		this.numeroMesa = numeroMesa;
+		this.numeroComanda = numeroComanda;
+		this.idDaVenda = idDaVenda;
+		this.idCaixa = idCaixa;
+		this.terminalAbertura = terminalAbertura;
+	}
+
 	public Venda() {
 		super();
 	}

@@ -16,7 +16,7 @@ public class MudarPorta implements WebServerFactoryCustomizer<TomcatServletWebSe
    public void customize(TomcatServletWebServerFactory factory) {
 	   int porta = 8080;
 	   try {
-           FileInputStream arquivo = new FileInputStream("/CumminsAutoAtendimento.txt");
+           FileInputStream arquivo = new FileInputStream("/cumminsAutoAtendimento.txt");
            InputStreamReader input = new InputStreamReader(arquivo);
            BufferedReader buffer = new BufferedReader(input);
            String linha;
